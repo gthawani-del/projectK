@@ -1,0 +1,15 @@
+const disclaimer=document.getElementById('disclaimer');const agreeBtn=document.getElementById('agreeBtn');const declineBtn=document.getElementById('declineBtn');const menuBtn=document.getElementById('menuBtn');const mobileMenu=document.getElementById('mobileMenu');const header=document.getElementById('header');
+
+const closeDisclaimer=()=>{sessionStorage.setItem('kridaDisclaimerAccepted','1');disclaimer.hidden=true;document.body.style.overflow=''};
+if(sessionStorage.getItem('kridaDisclaimerAccepted')==='1'){disclaimer.hidden=true}else{document.body.style.overflow='hidden'}
+agreeBtn?.addEventListener('click',closeDisclaimer);
+declineBtn?.addEventListener('click',()=>{window.location.href='about:blank'});
+
+const toggleMenu=(force)=>{const open=typeof force==='boolean'?force:!mobileMenu.classList.contains('is-open');mobileMenu.classList.toggle('is-open',open);mobileMenu.setAttribute('aria-hidden',String(!open));menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');document.body.style.overflow=open?'hidden':''};
+menuBtn?.addEventListener('click',()=>toggleMenu());
+mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(mobileMenu.classList.contains('is-open'))toggleMenu(false)}});
+
+document.querySelector('.contact-form')?.addEventListener('submit',e=>{e.preventDefault();const btn=e.currentTarget.querySelector('button[type="submit"]');const old=btn.innerHTML;btn.textContent='Enquiry form ready for backend connection';setTimeout(()=>btn.innerHTML=old,2400)});
+
+let lastY=0;window.addEventListener('scroll',()=>{const y=window.scrollY;if(y>lastY&&y>120){header.style.transform='translateY(-120%)'}else{header.style.transform='translateY(0)'}header.style.transition='transform .35s ease';lastY=y},{passive:true});
