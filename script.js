@@ -6,16 +6,8 @@ const mobileMenu=document.getElementById('mobileMenu');
 const header=document.getElementById('header')||document.querySelector('.site-header');
 
 if(disclaimer){
-  const closeDisclaimer=()=>{
-    sessionStorage.setItem('kridaDisclaimerAccepted','1');
-    disclaimer.hidden=true;
-    document.body.style.overflow='';
-  };
-  if(sessionStorage.getItem('kridaDisclaimerAccepted')==='1'){
-    disclaimer.hidden=true;
-  }else{
-    document.body.style.overflow='hidden';
-  }
+  const closeDisclaimer=()=>{sessionStorage.setItem('kridaDisclaimerAccepted','1');disclaimer.hidden=true;document.body.style.overflow=''};
+  if(sessionStorage.getItem('kridaDisclaimerAccepted')==='1'){disclaimer.hidden=true}else{document.body.style.overflow='hidden'}
   agreeBtn?.addEventListener('click',closeDisclaimer);
   declineBtn?.addEventListener('click',()=>{window.location.href='about:blank'});
 }
@@ -33,13 +25,28 @@ menuBtn?.addEventListener('click',()=>toggleMenu());
 mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false)});
 
-document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',e=>{
+document.querySelectorAll('.contact-form').forEach(form=>form.addEventListener('submit',async e=>{
   e.preventDefault();
-  const btn=e.currentTarget.querySelector('button[type="submit"]');
+  const btn=form.querySelector('button[type="submit"]');
+  const note=form.querySelector('.form-note')||document.getElementById('formNote');
   if(!btn)return;
   const old=btn.innerHTML;
-  btn.textContent='Enquiry form ready for backend connection';
-  setTimeout(()=>btn.innerHTML=old,2400);
+  btn.disabled=true;
+  btn.textContent='Sending…';
+  const data=Object.fromEntries(new FormData(form).entries());
+  try{
+    const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const json=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(json.error||'Unable to send');
+    form.reset();
+    btn.textContent='Enquiry sent';
+    if(note)note.textContent='Thank you. Your enquiry has been sent.';
+  }catch(err){
+    btn.textContent='Could not send';
+    if(note)note.textContent='The contact service is not configured or is temporarily unavailable.';
+  }finally{
+    setTimeout(()=>{btn.innerHTML=old;btn.disabled=false},2500);
+  }
 }));
 
 if(header){
