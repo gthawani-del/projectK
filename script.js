@@ -1,7 +1,9 @@
 const generatedAssets={
   '/assets/hero-sport.svg':'/assets/hero-home-desktop.jpg',
   '/assets/sports-gaming.svg':'/assets/practice-sports-gaming.jpg',
-  '/assets/ip.svg':'/assets/practice-ip.jpg'
+  '/assets/ip.svg':'/assets/practice-ip.jpg',
+  '/assets/commercial.svg':'/assets/practice-corporate.jpg',
+  '/assets/disputes.svg':'/assets/practice-dispute.jpg'
 };
 document.querySelectorAll('img[src]').forEach(img=>{
   const key=new URL(img.getAttribute('src'),location.origin).pathname;
