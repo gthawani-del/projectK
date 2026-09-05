@@ -1,3 +1,10 @@
+if(!document.querySelector('link[href="/mobile-enhancements.css"]')){
+  const mobileCss=document.createElement('link');
+  mobileCss.rel='stylesheet';
+  mobileCss.href='/mobile-enhancements.css';
+  document.head.appendChild(mobileCss);
+}
+
 const generatedAssets={
   '/assets/hero-sport.svg':'/assets/hero-home-desktop.jpg',
   '/assets/sports-gaming.svg':'/assets/practice-sports-gaming.jpg',
