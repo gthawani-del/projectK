@@ -15,6 +15,9 @@
   .mobile-menu [data-search-trigger],
   .mobile-menu__search{font-size:16px;line-height:1.45;letter-spacing:.08em}
 
+  .hero__content{padding:0 20px 18vh}
+  .hero__eyebrow{display:none}
+  .hero__content h1{font-size:clamp(58px,16vw,78px);line-height:.92;margin-top:0}
   .hero__content p,
   .practice-hero p,
   .practice-intro>p,
@@ -28,12 +31,17 @@
   .expertise-grid{display:flex;overflow-x:auto;gap:16px;padding:0 20px 14px;margin-left:-20px;margin-right:-20px;scroll-padding-left:20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
   .expertise-grid::-webkit-scrollbar{display:none}
   .expertise-card,.expertise-card--hero,.expertise-card:last-child{flex:0 0 calc(100vw - 40px);min-width:calc(100vw - 40px);height:auto;min-height:64svh;aspect-ratio:4/5;scroll-snap-align:start}
-  .expertise-card picture{position:absolute;inset:0;display:block;width:100%;height:100%}
-  .expertise-card picture img,.expertise-card>img{width:100%;height:100%;object-fit:cover;object-position:center center}
+  .expertise-card picture{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden}
+  .expertise-card picture img,.expertise-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;max-width:none}
+  .expertise-card:nth-child(1) picture img{object-position:58% center}
+  .expertise-card:nth-child(2) picture img{object-position:center center}
+  .expertise-card:nth-child(3) picture img{object-position:center center}
+  .expertise-card:nth-child(4) picture img{object-position:52% center}
+  .card-overlay{background:linear-gradient(0deg,rgba(2,12,14,.86) 0%,rgba(2,12,14,.34) 48%,rgba(2,12,14,.08) 78%)}
   .card-copy{padding:28px 24px 26px}
   .card-copy span{font-size:13px}
-  .card-copy h3{font-size:clamp(32px,8.5vw,42px);line-height:1.05;margin:12px 0 10px}
-  .card-copy p{font-size:18px;line-height:1.5;max-width:85%;margin:0}
+  .card-copy h3{font-size:clamp(32px,8.5vw,42px);line-height:1.05;margin:12px 0 10px;max-width:80%}
+  .card-copy p{font-size:18px;line-height:1.5;max-width:78%;margin:0}
   .card-copy b{width:52px;height:52px;right:22px;bottom:24px;font-size:20px}
 
   .practice-hero{min-height:86svh}
@@ -60,5 +68,5 @@
 
 @media (max-width:480px){
   .expertise-card,.expertise-card--hero,.expertise-card:last-child{min-height:62svh;aspect-ratio:3/4}
-  .card-copy p{max-width:82%}
+  .card-copy p{max-width:76%}
 }
