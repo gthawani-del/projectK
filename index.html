@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#071619">
   <link rel="canonical" href="https://kridalegal.com/">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/responsive-images.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,7 +53,10 @@
   <main id="main">
     <section class="hero" id="firm">
       <div class="hero__media" aria-hidden="true">
-        <img src="/assets/hero-home-desktop.webp" alt="">
+        <picture>
+          <source media="(max-width: 900px)" srcset="/assets/hero-home-mobile.webp">
+          <img src="/assets/hero-home-desktop.webp" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
+        </picture>
         <div class="hero__scrim"></div>
       </div>
       <div class="hero__content">
