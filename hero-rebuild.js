@@ -1,6 +1,7 @@
 (()=>{
   const hero=document.querySelector('.hero');
   if(!hero||location.pathname!=='/')return;
+  document.body.classList.add('home-page');
 
   const sectors=document.createElement('div');
   sectors.className='hero-sectors';
