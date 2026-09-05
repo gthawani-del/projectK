@@ -1,0 +1,64 @@
+@media (max-width:900px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-size:17px;line-height:1.55}
+
+  .eyebrow{font-size:13px;line-height:1.45;letter-spacing:.18em}
+  .brand span{font-size:30px}
+  .brand small{font-size:12px;margin-top:10px}
+
+  .mobile-menu{padding:112px 20px max(28px,env(safe-area-inset-bottom))}
+  .menu-index{font-size:13px;letter-spacing:.2em}
+  .mobile-menu nav a{font-size:clamp(42px,11vw,64px);line-height:1.05;padding:10px 0;gap:20px}
+  .mobile-menu nav span{font-size:13px}
+  .menu-meta{font-size:16px;line-height:1.55}
+  .mobile-menu .search-trigger,
+  .mobile-menu [data-search-trigger],
+  .mobile-menu__search{font-size:16px;line-height:1.45;letter-spacing:.08em}
+
+  .hero__content p,
+  .practice-hero p,
+  .practice-intro>p,
+  .section-heading>p,
+  .page-hero p{font-size:18px;line-height:1.6}
+
+  .section{padding:84px 20px}
+  .section-heading{margin-bottom:44px}
+  .section-heading h2,.contact__headline h2{font-size:clamp(48px,13vw,72px);line-height:.95}
+
+  .expertise-grid{display:flex;overflow-x:auto;gap:16px;padding:0 20px 14px;margin-left:-20px;margin-right:-20px;scroll-padding-left:20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .expertise-grid::-webkit-scrollbar{display:none}
+  .expertise-card,.expertise-card--hero,.expertise-card:last-child{flex:0 0 calc(100vw - 40px);min-width:calc(100vw - 40px);height:auto;min-height:64svh;aspect-ratio:4/5;scroll-snap-align:start}
+  .expertise-card picture{position:absolute;inset:0;display:block;width:100%;height:100%}
+  .expertise-card picture img,.expertise-card>img{width:100%;height:100%;object-fit:cover;object-position:center center}
+  .card-copy{padding:28px 24px 26px}
+  .card-copy span{font-size:13px}
+  .card-copy h3{font-size:clamp(32px,8.5vw,42px);line-height:1.05;margin:12px 0 10px}
+  .card-copy p{font-size:18px;line-height:1.5;max-width:85%;margin:0}
+  .card-copy b{width:52px;height:52px;right:22px;bottom:24px;font-size:20px}
+
+  .practice-hero{min-height:86svh}
+  .practice-hero__media picture{position:absolute;inset:0;display:block;width:100%;height:100%}
+  .practice-hero__media picture img,.practice-hero__media>img{width:100%;height:100%;object-fit:cover;object-position:center center}
+  .practice-hero h1{font-size:clamp(62px,17vw,88px);line-height:.92}
+
+  .person-meta h3{font-size:26px}
+  .person-meta p{font-size:17px}
+  .person-meta a{font-size:15px}
+
+  .insight-list span{font-size:12px}
+  .insight-list h3{font-size:clamp(27px,7vw,38px);line-height:1.12}
+  .insight-index{font-size:13px}
+
+  .contact-form label>span{font-size:12px}
+  .contact-form input,.contact-form select,.contact-form textarea{font-size:17px;padding:16px 14px}
+  .check span{font-size:14px!important}
+
+  .footer-brand+p{font-size:16px}
+  .footer-links{font-size:16px}
+  .footer-bottom{font-size:13px;line-height:1.7}
+}
+
+@media (max-width:480px){
+  .expertise-card,.expertise-card--hero,.expertise-card:last-child{min-height:62svh;aspect-ratio:3/4}
+  .card-copy p{max-width:82%}
+}
