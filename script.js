@@ -1,3 +1,13 @@
+const generatedAssets={
+  '/assets/hero-sport.svg':'/assets/hero-home-desktop.jpg',
+  '/assets/sports-gaming.svg':'/assets/practice-sports-gaming.jpg',
+  '/assets/ip.svg':'/assets/practice-ip.jpg'
+};
+document.querySelectorAll('img[src]').forEach(img=>{
+  const key=new URL(img.getAttribute('src'),location.origin).pathname;
+  if(generatedAssets[key]) img.src=generatedAssets[key];
+});
+
 const disclaimer=document.getElementById('disclaimer');
 const agreeBtn=document.getElementById('agreeBtn');
 const declineBtn=document.getElementById('declineBtn');
